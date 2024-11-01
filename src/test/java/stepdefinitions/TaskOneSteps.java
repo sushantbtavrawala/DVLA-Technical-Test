@@ -47,25 +47,6 @@ public class TaskOneSteps {
         }
     }
 
-    @Then("validate the limit type is {string}")
-    public void validateTheLimitTypeIs(String Limit_Type) {
-        rateLimitsPage.isLimitTypeQuotaDisplayed();
-    }
-
-    @And("validate the limit value is {string}")
-    public void validateTheLimitValueIs(String expectedLimitValue) {
-       rateLimitsPage.isLimitTypeQuotaValueDisplayed();
-    }
-
-    @Then("verify limit type {string} is display with the limit {Integer}")
-    public void verify_is_display_with_the_limit(String Limit_Type, Integer Limit_Value) {
-        if(Limit_Type.equalsIgnoreCase("quota")) {
-            rateLimitsPage.assertValue(Limit_Type, Limit_Value);
-        } else {
-            Assert.fail("Limit Type is not found in the table");
-        }
-    }
-    
     @And("user navigate back to homepage")
     public void user_navigate_back_to_homepage() {
         homePage.navigateToHomePage();
@@ -82,8 +63,12 @@ public class TaskOneSteps {
             String reqeustErrorCode = row.get("error_code");
             String requestErrorDescription = row.get("error_message");
 
-            // Print or assert for verification
-            errorCodesPage.validate_Error_Code_With_Description_Table(reqeustErrorCode,requestErrorDescription);
+        errorCodesPage.validate_ErrorCode_ErrorDescription(reqeustErrorCode,requestErrorDescription);
         }
+    }
+
+    @Then("verify limit type {string} is display with the limit {string}")
+    public void verifyLimitTypeIsDisplayWithTheLimit(String Limit_Type, String Limit_Value) {
+            rateLimitsPage.validateLimitTypeWithLimitValue(Limit_Type, Limit_Value);
     }
 }

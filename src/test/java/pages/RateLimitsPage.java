@@ -40,7 +40,6 @@ public class RateLimitsPage {
     public void isLimitTypeQuotaDisplayed() {
         commonUtils.waitForVisibility(limit_Type_Quota_Locator);
         Assert.assertTrue("Limit Type Quota is not displayed.", limit_Type_Quota_Locator.isDisplayed());
-
     }
 
     public void isLimitTypeQuotaValueDisplayed() {
@@ -48,9 +47,9 @@ public class RateLimitsPage {
         Assert.assertTrue("Limit Type Quota value is not displayed.", limit_Quota_Value_Locator.isDisplayed());
     }
 
-    public void assertValue(String limit_Type, Integer limit_Value) {
-        ////tr[td[contains(text(), 'Burst')] and td[contains(text(), '10')]]
-        List<WebElement> limitTypeTableContent = driver.findElements(By.xpath("//tr[td[contains(text(),'" + limit_Type +"')] and td[contains(text(),'" + limit_Value +"')]]"));
+    public void validateLimitTypeWithLimitValue(String limit_Type, String limit_Value) {
+        List<WebElement> limitTypeTableContent = driver.findElements(
+                By.xpath("//tr[td[contains(text(),'" + limit_Type +"')] and td[contains(text(),'" + limit_Value +"')]]"));
 
         // Assert if the table contains an entry for the given limit type and value
         Assert.assertFalse(limit_Type + " with value " + limit_Value + " not found in the table.", limitTypeTableContent.isEmpty());

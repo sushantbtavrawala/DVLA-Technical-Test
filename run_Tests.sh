@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mvn clean install -Dtest=TestRunner
+mvn clean install -Dtest=TestRunner && open target/index.html
