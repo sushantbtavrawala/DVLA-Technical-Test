@@ -22,12 +22,6 @@ public class RateLimitsPage {
     }
 
     //Locators
-    @FindBy(xpath = "//table[@class='govuk-table']//tr[1]/td[1]")
-    WebElement limit_Type_Quota_Locator;
-
-    @FindBy(xpath = "//table[@class='govuk-table']//tr[1]/td[3]")
-    WebElement limit_Quota_Value_Locator;
-
     @FindBy(xpath = "//h1")
     WebElement rate_limit_Title_Locator;
 
