@@ -37,16 +37,6 @@ public class RateLimitsPage {
         Assert.assertTrue("Rate Limit title is not displayed.", rate_limit_Title_Locator.isDisplayed());
     }
 
-    public void isLimitTypeQuotaDisplayed() {
-        commonUtils.waitForVisibility(limit_Type_Quota_Locator);
-        Assert.assertTrue("Limit Type Quota is not displayed.", limit_Type_Quota_Locator.isDisplayed());
-    }
-
-    public void isLimitTypeQuotaValueDisplayed() {
-        commonUtils.waitForVisibility(limit_Quota_Value_Locator);
-        Assert.assertTrue("Limit Type Quota value is not displayed.", limit_Quota_Value_Locator.isDisplayed());
-    }
-
     public void validateLimitTypeWithLimitValue(String limit_Type, String limit_Value) {
         List<WebElement> limitTypeTableContent = driver.findElements(
                 By.xpath("//tr[td[contains(text(),'" + limit_Type +"')] and td[contains(text(),'" + limit_Value +"')]]"));
