@@ -17,6 +17,7 @@
         <selenium.version>4.21.0</selenium.version>
         <testNg.version>7.10.2</testNg.version>
         <webdrivermanager.version>5.8.0</webdrivermanager.version>
+        <restassured.version>5.5.0</restassured.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
     </properties>
@@ -65,18 +66,16 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testNg.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>5.5.0</version>
+            <version>${restassured.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -94,14 +93,6 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-
-            <!-- Maven Jar Plugin (default configuration for primary jar only) -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.1</version>
-            </plugin>
-
             <!-- Maven Surefire Plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -110,8 +101,6 @@
                 <configuration>
                     <includes>
                         <include>**/*Test.java</include>
-                        <include>**/*Tests.java</include>
-                        <include>**/*TestNG.java</include>
                     </includes>
                 </configuration>
             </plugin>
