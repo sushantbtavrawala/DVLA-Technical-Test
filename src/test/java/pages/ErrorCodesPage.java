@@ -35,7 +35,7 @@ public class ErrorCodesPage {
                 By.xpath("//tr[td[contains(text(),'" + errCode +"')] and td[contains(text(),'" + errDescription +"')]]"));
 
         // Assert if the table do not match with requested data
-        Assert.assertFalse("Contains does not found in the table.", tableRows.isEmpty());
+        Assert.assertFalse(errCode + " contains do not found in the table.", tableRows.isEmpty());
     }
 }
 
