@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 public class RateLimitsPage {
@@ -23,19 +22,19 @@ public class RateLimitsPage {
 
     //Locators
     @FindBy(xpath = "//h1")
-    WebElement rate_limit_Title_Locator;
+    WebElement ratelimitTitleLocator;
 
     //Actions
     public void isRateLimitTitleDisplayed() {
-        commonUtils.waitForVisibility(rate_limit_Title_Locator);
-        Assert.assertTrue("Rate Limit title is not displayed.", rate_limit_Title_Locator.isDisplayed());
+        commonUtils.waitForVisibility(ratelimitTitleLocator);
+        Assert.assertTrue("Rate Limit title is not displayed.", ratelimitTitleLocator.isDisplayed());
     }
 
-    public void validateLimitTypeWithLimitValue(String limit_Type, String limit_Value) {
+    public void validateLimitTypeWithLimitValue(String limitType, String limitValue) {
         List<WebElement> limitTypeTableContent = driver.findElements(
-                By.xpath("//tr[td[contains(text(),'" + limit_Type +"')] and td[contains(text(),'" + limit_Value +"')]]"));
+                By.xpath("//tr[td[contains(text(),'" + limitType +"')] and td[contains(text(),'" + limitValue +"')]]"));
 
-        // Assert if the table contains an entry for the given limit type and value
-        Assert.assertFalse(limit_Type + " with value " + limit_Value + " not found in the table.", limitTypeTableContent.isEmpty());
+        // Assert if the table do not match with requested data
+        Assert.assertFalse(limitType + " with value " + limitValue + " not found in the table.", limitTypeTableContent.isEmpty());
     }
 }
