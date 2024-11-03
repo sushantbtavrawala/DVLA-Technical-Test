@@ -30,9 +30,13 @@ public class ErrorCodesPage {
         errorCodesTitleLocator.isDisplayed();
     }
 
+    // Build XPath for table rows based on error code and description
+    private By getTableRowByErrorCodeAndDescription(String errCode, String errDescription) {
+        return By.xpath(String.format("//tr[td[contains(text(),'%s')] and td[contains(text(),'%s')]]", errCode, errDescription));
+    }
+
     public void validate_ErrorCode_ErrorDescription(String errCode, String errDescription) {
-        List<WebElement> tableRows = driver.findElements(
-                By.xpath("//tr[td[contains(text(),'" + errCode +"')] and td[contains(text(),'" + errDescription +"')]]"));
+        List<WebElement> tableRows = driver.findElements(getTableRowByErrorCodeAndDescription(errCode, errDescription));
 
         // Assert if the table do not match with requested data
         Assert.assertFalse(errCode + " contains do not found in the table.", tableRows.isEmpty());

@@ -17,14 +17,14 @@ public class hooks {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
     }
 
     @After
     public void tearDown() {
         if (driver != null) {
-            driver.quit(); // Use quit instead of close to ensure all browser windows are closed
+            driver.quit();
             driver = null; // Reset driver to ensure fresh instance for the next test
         }
     }
