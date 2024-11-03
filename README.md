@@ -1,7 +1,5 @@
 # DVLA-Technical-acceptance-tests
 This project is about DVLA-Technical tests task.
-It is hosted on Github in public repository
-https://github.com/sushantbtavrawala/DVLA-Technical-Test
 
 ### Prerequisites
 Ensure you have the following installed:
