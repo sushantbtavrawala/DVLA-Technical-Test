@@ -15,8 +15,9 @@ Feature: Navigate to the Page and verify quota limits are displayed
     When user click on the link "error codes"
     And verify user is on "Error Codes" page
     Then verify error code is display with the error description
-      | error_code | error_message                                                |
-      | MOTH-NP-01 | DVLA ID is required but has not been provided in the request |
-      | MOTH-FB-02 | The access token sent with the request has expired           |
+      | error_code | error_Description                                                    |
+      | MOTH-NP-01 | DVLA ID is required but has not been provided in the request         |
+      | MOTH-FB-02 | The access token sent with the request has expired                   |
+      | MOTH-NP-03 | MOT test number is required but has not been provided in the request |
     And user navigate back to homepage
 

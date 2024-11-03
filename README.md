@@ -6,7 +6,7 @@ Ensure you have the following installed:
 
 - Java 11 or higher
 - Maven (for dependency management and build automation)
-- Intellij Code Editor
+- Intellij Code Editor with the plugin from marketplace cucumber-java
 
 ### Browser
 - By default the tests will run in Chrome browser
@@ -27,6 +27,8 @@ Ensure you have the following installed:
 
 ### To run the tests with command line
 ```mvn clean install test -Dtest=TestRunner```
+or run the shell script
+```run_Tests.sh```
 
 ### Writing Tests
 - ```Feature Files:``` Scenarios are written in .feature files under ```src/test/resources/features```

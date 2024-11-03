@@ -59,7 +59,7 @@ public class TaskOneSteps {
         // Iterate through each row and print out error codes and messages
         for (Map<String, String> row : errorDetails) {
             String reqeustErrorCode = row.get("error_code");
-            String requestErrorDescription = row.get("error_message");
+            String requestErrorDescription = row.get("error_Description");
 
         errorCodesPage.validate_ErrorCode_ErrorDescription(reqeustErrorCode,requestErrorDescription);
         }
@@ -67,6 +67,6 @@ public class TaskOneSteps {
 
     @Then("verify limit type {string} is display with the limit {string}")
     public void verifyLimitTypeIsDisplayWithTheLimit(String Limit_Type, String Limit_Value) {
-            rateLimitsPage.validateLimitTypeWithLimitValue(Limit_Type, Limit_Value);
+        rateLimitsPage.validateLimitTypeWithLimitValue(Limit_Type, Limit_Value);
     }
 }
