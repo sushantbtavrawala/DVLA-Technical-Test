@@ -5,14 +5,13 @@ import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.io.IOException;
 import java.time.Duration;
 
 public class hooks {
     private static WebDriver driver;
 
     @Before
-    public void startUp() throws IOException {
+    public void startUp() {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
