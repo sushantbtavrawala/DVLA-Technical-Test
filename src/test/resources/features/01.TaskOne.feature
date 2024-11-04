@@ -10,7 +10,6 @@ Feature: Navigate to the Page and verify quota limits are displayed
     Then verify limit type "Quota" is display with the limit "500000"
     And user navigate back to homepage
 
-  @smoke
   Scenario: 04 - Verify Error code is present with reason
     When user click on the link "error codes"
     And verify user is on "Error Codes" page

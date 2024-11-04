@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
         features = {"src/test/resources/features"},
         glue = {"stepdefinitions","hooks"},
         plugin = {"pretty","html:target/Index.html"},
-        publish = true,
-        tags = "@smoke"
+        publish = true
+       // tags = "@smoke"
        // dryRun = false
 )
 
