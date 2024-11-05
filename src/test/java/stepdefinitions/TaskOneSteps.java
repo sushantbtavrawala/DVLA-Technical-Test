@@ -15,13 +15,14 @@ import java.util.Map;
 
 public class TaskOneSteps {
 
-    WebDriver driver = hooks.getDriver();
-    RateLimitsPage rateLimitsPage;
+    WebDriver driver = hooks.getDriver();   // Initializing WebDriver instance from the hooks class
+    RateLimitsPage rateLimitsPage; // Declaring instances of page objects for each page this test will interact with
     HomePage homePage;
     ErrorCodesPage errorCodesPage;
 
+    // Constructor for TaskOneSteps class
     public TaskOneSteps() {
-        this.rateLimitsPage = new RateLimitsPage(driver);
+        this.rateLimitsPage = new RateLimitsPage(driver); // Initializing each page object with the WebDriver instance
         this.homePage = new HomePage(driver);
         this.errorCodesPage = new ErrorCodesPage(driver);
     }

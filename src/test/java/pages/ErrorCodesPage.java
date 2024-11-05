@@ -11,13 +11,13 @@ import java.util.List;
 
 public class ErrorCodesPage {
 
-    WebDriver driver;
-    CommonUtils commonUtils;
+    WebDriver driver;     // WebDriver instance for interacting with the browser
+    CommonUtils commonUtils;     // CommonUtils instance for utility methods (like waits and interactions)
 
     public ErrorCodesPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-        this.commonUtils = new CommonUtils(driver);
+        this.driver = driver; // Initialize the driver instance
+        PageFactory.initElements(driver, this); // Initialize all WebElements annotated with @FindBy
+        this.commonUtils = new CommonUtils(driver); // Initialize CommonUtils with the driver instance
     }
 
     //Locators
