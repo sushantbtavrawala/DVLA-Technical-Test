@@ -24,15 +24,15 @@ public class RateLimitsPage {
     @FindBy(xpath = "//h1")
     WebElement ratelimitTitleLocator;
 
+    // Build XPath to get limit type table content based on limitType and limitValue
+    private By getLimitTypeTableContent(String limitType, String limitValue) {
+        return By.xpath(String.format("//tr[td[contains(text(),'%s')] and td[contains(text(),'%s')]]", limitType, limitValue));
+    }
+
     //Actions
     public void isRateLimitTitleDisplayed() {
         commonUtils.waitForVisibility(ratelimitTitleLocator);
         Assert.assertTrue("Rate Limit title is not displayed.", ratelimitTitleLocator.isDisplayed());
-    }
-
-    // Build XPath to get limit type table content based on limitType and limitValue
-    private By getLimitTypeTableContent(String limitType, String limitValue) {
-        return By.xpath(String.format("//tr[td[contains(text(),'%s')] and td[contains(text(),'%s')]]", limitType, limitValue));
     }
 
     public void validateLimitTypeWithLimitValue(String limitType, String limitValue) {

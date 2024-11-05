@@ -24,15 +24,15 @@ public class ErrorCodesPage {
     @FindBy(xpath = "//h1")
     WebElement errorCodesTitleLocator;
 
+    // Build XPath for table rows based on error code and description
+    private By getTableRowByErrorCodeAndDescription(String errCode, String errDescription) {
+        return By.xpath(String.format("//tr[td[contains(text(),'%s')] and td[contains(text(),'%s')]]", errCode, errDescription));
+    }
+
     //Actions
     public void isErrorCodesTitleDisplayed() {
         commonUtils.waitForVisibility(errorCodesTitleLocator);
         errorCodesTitleLocator.isDisplayed();
-    }
-
-    // Build XPath for table rows based on error code and description
-    private By getTableRowByErrorCodeAndDescription(String errCode, String errDescription) {
-        return By.xpath(String.format("//tr[td[contains(text(),'%s')] and td[contains(text(),'%s')]]", errCode, errDescription));
     }
 
     public void validate_ErrorCode_ErrorDescription(String errCode, String errDescription) {
