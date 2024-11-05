@@ -25,6 +25,9 @@ public class HomePage {
     @FindBy(linkText = "Error codes")
     WebElement linkErrorCode;
 
+    String homePageUrl = "https://documentation.history.mot.api.gov.uk/";
+
+    //Actions
     public void clickHomePageLinks(String link){
         if(link.equalsIgnoreCase("rate limits")){
             commonUtils.waitForVisibility(linkRateLimit);
@@ -36,7 +39,6 @@ public class HomePage {
     }
 
     public void navigateToHomePage() {
-        String homePageUrl = "https://documentation.history.mot.api.gov.uk/";
         driver.navigate().back();
         // Verify we are back on the homepage
         Assert.assertEquals("Homepage URL mismatch", homePageUrl, driver.getCurrentUrl());
