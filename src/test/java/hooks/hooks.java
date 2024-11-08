@@ -5,12 +5,13 @@ import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 public class hooks {
     private static WebDriver driver;
 
-    @Before
+    /*@Before
     public void startUp() {
         // Check if the WebDriver instance is not already created
         if (driver == null) {
@@ -27,6 +28,23 @@ public class hooks {
             // for elements to appear before throwing a NoSuchElementException
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
+    }*/
+
+    @Before
+    public void startUp() {
+        if (driver == null) {
+            WebDriverManager.chromedriver().setup();
+            // Get the headless property from system properties (default to "false" if not set)
+            boolean isHeadless = Boolean.parseBoolean(System.getProperty("browser.option.headless", "false"));
+            // Set Chrome options
+            ChromeOptions options = new ChromeOptions();
+            if (isHeadless) {
+                options.addArguments("--headless");
+            }
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        }
     }
 
     @After
@@ -35,7 +53,6 @@ public class hooks {
         if (driver != null) {
             // Close the browser and end the WebDriver session
             driver.quit();
-
             // Set the driver to null to ensure a fresh instance is created in the next test
             driver = null;
         }
